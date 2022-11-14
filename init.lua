@@ -17,7 +17,9 @@ require('nvim-tree').setup{}
 require('lualine').setup {
     options = {
         -- theme = 'dracula-nvim'
-        theme = 'carbonfox'
+        -- theme = 'carbonfox'
+        -- theme = 'mellow'
+        theme = 'tokyonight'
     }
 }
 require('nvim-autopairs').setup{}
