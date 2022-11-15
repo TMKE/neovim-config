@@ -6,6 +6,7 @@ return require('packer').startup(function(use)
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons'        -- filesystem icons
   }
+  use "nvim-treesitter/nvim-treesitter"              -- Nvim Treesitter configurations
 
   -- [[ Theme ]]
   use { 'mhinz/vim-startify' }                       -- start screen
@@ -24,12 +25,15 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use { 'majutsushi/tagbar' }                        -- code structure
-  use { 'Yggdroot/indentLine' }                      -- see indentation
+  -- use { 'Yggdroot/indentLine' }                      -- see indentation
   use { 'tpope/vim-fugitive' }                       -- git integration
   use { 'junegunn/gv.vim' }                          -- commit history
   use { 'windwp/nvim-autopairs' }                    -- auto close brackets, etc.
   use { 'tpope/vim-commentary' }					 -- comment stuff out
   use { 'tpope/vim-surround' }                       -- add surroundings in pairs
+  use "lukas-reineke/indent-blankline.nvim"          -- add indentation lines to all lines (including empty lines)
+  use "lewis6991/gitsigns.nvim"                      -- Git integration for buffers 
+  use {'neoclide/coc.nvim', branch = 'release'}      -- autocompletion
 end)
 -- config = {
 --  package_root = vim.fn.stdpath('config') .. '/site/pack'
