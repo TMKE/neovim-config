@@ -23,6 +23,7 @@ require('lualine').setup {
         -- theme = 'carbonfox'
         -- theme = 'mellow'
         theme = 'tokyonight',
+        -- theme = 'melange',
     }
 }
 require('nvim-autopairs').setup{}
@@ -44,4 +45,13 @@ require("indent_blankline").setup {
     -- show_trailing_blankline_indent = false,
     use_treesitter = true,
 }
-require('gitsigns').setup()
+require('gitsigns').setup {
+  -- signs = {
+  --   add          = { hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'    },
+  --   change       = { hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
+  --   delete       = { hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn' },
+  --   topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn' },
+  --   changedelete = { hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
+  --   untracked    = { hl = 'GitSignsAdd'   , text = '┆', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'    },
+  -- },
+}

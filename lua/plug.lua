@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
   use "EdenEast/nightfox.nvim"                       -- nightfox colorscheme
   use 'kvrohit/mellow.nvim'                          -- mellow colorscheme
   use 'folke/tokyonight.nvim'                        -- tokyonight colorscheme
+  use "savq/melange"                                 -- melange colorscheme
   use {
     'nvim-telescope/telescope.nvim',                 -- fuzzy finder
     requires = { {'nvim-lua/plenary.nvim'} }
@@ -34,6 +35,8 @@ return require('packer').startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"          -- add indentation lines to all lines (including empty lines)
   use "lewis6991/gitsigns.nvim"                      -- Git integration for buffers 
   use {'neoclide/coc.nvim', branch = 'release'}      -- autocompletion
+  use "lervag/vimtex"
+  use 'jbyuki/nabla.nvim'                            -- <Leader>p to show math equation in popup
 end)
 -- config = {
 --  package_root = vim.fn.stdpath('config') .. '/site/pack'

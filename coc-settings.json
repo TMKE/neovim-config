@@ -5,10 +5,10 @@
             "filetypes": ["rust"],
             "rootPatterns": ["Cargo.toml"]
         },
-        "bash": {
-          "command": "bash-language-server",
-          "args": ["start"],
-          "filetypes": ["sh"]
+        "digestif": {
+            "command": "digestif",
+            "filetypes": ["tex", "plaintex", "context"]
         }
-    }
+    },
+    "Lua.telemetry.enable": false
 }

@@ -21,6 +21,7 @@ opt.termguicolors = true         -- bool: If term supports ui color then enable
 -- cmd('colorscheme tokyonight')     -- cmd: Set the colorscheme
 cmd('colorscheme tokyonight-night')     -- cmd: Set the colorscheme
 -- cmd('colorscheme tokyonight-day')     -- cmd: Set the colorscheme
+-- cmd('colorscheme melange')
 
 -- [[ Search ]]
 opt.ignorecase = true            -- bool: Ignore case in search patterns
