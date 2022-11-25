@@ -16,12 +16,7 @@ opt.fileencoding = 'utf8'        -- str:  File encoding to use
 -- [[ Theme ]]
 opt.syntax = "ON"                -- str:  Allow syntax highlighting
 opt.termguicolors = true         -- bool: If term supports ui color then enable
--- cmd('colorscheme carbonfox')     -- cmd: Set the colorscheme
--- cmd('colorscheme mellow')     -- cmd: Set the colorscheme
--- cmd('colorscheme tokyonight')     -- cmd: Set the colorscheme
-cmd('colorscheme tokyonight-night')     -- cmd: Set the colorscheme
--- cmd('colorscheme tokyonight-day')     -- cmd: Set the colorscheme
--- cmd('colorscheme melange')
+cmd('colorscheme melange')      -- cmd: Set the colorscheme
 
 -- [[ Search ]]
 opt.ignorecase = true            -- bool: Ignore case in search patterns

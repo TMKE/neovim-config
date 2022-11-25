@@ -16,11 +16,16 @@ return require('packer').startup(function(use)
     requires = {'kyazdani42/nvim-web-devicons',
                 opt = true}
   }
+
+  -- [[ colorschemes ]]
   use { 'Mofiqul/dracula.nvim' }                     -- dracula colorscheme
-  use "EdenEast/nightfox.nvim"                       -- nightfox colorscheme
-  use 'kvrohit/mellow.nvim'                          -- mellow colorscheme
   use 'folke/tokyonight.nvim'                        -- tokyonight colorscheme
-  use "savq/melange"                                 -- melange colorscheme
+  use "rebelot/kanagawa.nvim"                        -- kanagawa colorscheme
+  use 'tanvirtin/monokai.nvim'
+  use { 'kaiuri/nvim-juliana' }
+  use 'projekt0n/github-nvim-theme'
+  use "savq/melange"
+
   use {
     'nvim-telescope/telescope.nvim',                 -- fuzzy finder
     requires = { {'nvim-lua/plenary.nvim'} }

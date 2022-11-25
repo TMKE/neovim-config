@@ -9,6 +9,8 @@ vim.g.localleader = "\\"
 vim.opt.list = true
 vim.opt.listchars:append "eol:↴"
 
+vim.g.material_style = "darker" -- Available: darker, deep ocean,
+
 -- IMPORTS
 require('vars')      -- Variables
 require('opts')      -- Options
@@ -19,29 +21,16 @@ require('plug')      -- Plugins
 require('nvim-tree').setup{}
 require('lualine').setup {
     options = {
-        -- theme = 'dracula-nvim'
-        -- theme = 'carbonfox'
-        -- theme = 'mellow'
-        theme = 'tokyonight',
-        -- theme = 'melange',
+        theme = 'auto',
+        disabled_filetypes = { 'packer', 'NvimTree' }
     }
 }
 require('nvim-autopairs').setup{}
-require('nightfox').setup {
-    options = {
-        transparent = false,    -- Disable setting background
-        styles = {
-            comments = "italic",
-            keywords = "bold",
-            types = "italic,bold"
-        }
-    }
-}
 require("indent_blankline").setup {
     show_end_of_line = true,
     show_current_context = true,
-    -- show_current_context_start = true,
-    -- show_first_indent_level = false,
+    show_current_context_start = true,
+    show_first_indent_level = false,
     -- show_trailing_blankline_indent = false,
     use_treesitter = true,
 }
