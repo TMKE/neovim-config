@@ -11,6 +11,7 @@ vim.opt.listchars:append "eol:↴"
 
 vim.g.material_style = "darker" -- Available: darker, deep ocean,
 
+
 -- IMPORTS
 require('vars')      -- Variables
 require('opts')      -- Options
@@ -27,7 +28,7 @@ require('lualine').setup {
 }
 require('nvim-autopairs').setup{}
 require("indent_blankline").setup {
-    show_end_of_line = true,
+    show_end_of_line = false,
     show_current_context = true,
     show_current_context_start = true,
     show_first_indent_level = false,
@@ -44,3 +45,6 @@ require('gitsigns').setup {
   --   untracked    = { hl = 'GitSignsAdd'   , text = '┆', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'    },
   -- },
 }
+-- require('noirbuddy').setup {
+--   preset = 'kiwi',
+require('mini.cursorword').setup()
