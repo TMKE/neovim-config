@@ -1,4 +1,4 @@
--- [[ plug.lua ]]
+--
 
 return require('packer').startup(function(use)
   -- [[ Plugins Go Here ]]
@@ -18,13 +18,18 @@ return require('packer').startup(function(use)
   }
 
   -- [[ colorschemes ]]
-  use { 'Mofiqul/dracula.nvim' }                     -- dracula colorscheme
+  -- use { 'Mofiqul/dracula.nvim' }                     -- dracula colorscheme
+  use { 'maxmx03/dracula.nvim'}
   use 'folke/tokyonight.nvim'                        -- tokyonight colorscheme
   use "rebelot/kanagawa.nvim"                        -- kanagawa colorscheme
-  use 'tanvirtin/monokai.nvim'
   use { 'kaiuri/nvim-juliana' }
-  use 'projekt0n/github-nvim-theme'
   use "savq/melange"
+  use 'ribru17/bamboo.nvim'
+  use "NTBBloodbath/sweetie.nvim"
+  use 'xiantang/darcula-dark.nvim'
+  use "Alexis12119/nightly.nvim"
+  use "bartekprtc/gruv-vsassist.nvim"
+
 
   use {
     'nvim-telescope/telescope.nvim',                 -- fuzzy finder
@@ -42,6 +47,7 @@ return require('packer').startup(function(use)
   use {'neoclide/coc.nvim', branch = 'release'}      -- autocompletion
   use "lervag/vimtex"
   use 'jbyuki/nabla.nvim'                            -- <Leader>p to show math equation in popup
+  use { 'echasnovski/mini.cursorword', branch = 'stable' }
 end)
 -- config = {
 --  package_root = vim.fn.stdpath('config') .. '/site/pack'
