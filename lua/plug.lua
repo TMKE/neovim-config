@@ -8,6 +8,9 @@ return require('packer').startup(function(use)
   }
   use "nvim-treesitter/nvim-treesitter"              -- Nvim Treesitter configurations
 
+  use "udalov/kotlin-vim"
+  use "uiiaoo/java-syntax.vim"
+
   -- [[ Theme ]]
   use { 'mhinz/vim-startify' }                       -- start screen
   -- use { 'DanilaMihailov/beacon.nvim' }               -- cursor jump
@@ -17,18 +20,13 @@ return require('packer').startup(function(use)
                 opt = true}
   }
 
+
   -- [[ colorschemes ]]
-  -- use { 'Mofiqul/dracula.nvim' }                     -- dracula colorscheme
-  use { 'maxmx03/dracula.nvim'}
-  use 'folke/tokyonight.nvim'                        -- tokyonight colorscheme
-  use "rebelot/kanagawa.nvim"                        -- kanagawa colorscheme
   use { 'kaiuri/nvim-juliana' }
-  use "savq/melange"
   use 'ribru17/bamboo.nvim'
-  use "NTBBloodbath/sweetie.nvim"
-  use 'xiantang/darcula-dark.nvim'
-  use "Alexis12119/nightly.nvim"
-  use "bartekprtc/gruv-vsassist.nvim"
+  use 'navarasu/onedark.nvim'
+  use 'savq/melange-nvim'
+  use 'sainnhe/sonokai'
 
 
   use {
@@ -42,7 +40,7 @@ return require('packer').startup(function(use)
   use { 'windwp/nvim-autopairs' }                    -- auto close brackets, etc.
   use { 'tpope/vim-commentary' }					 -- comment stuff out
   use { 'tpope/vim-surround' }                       -- add surroundings in pairs
-  use "lukas-reineke/indent-blankline.nvim"          -- add indentation lines to all lines (including empty lines)
+  use { "lukas-reineke/indent-blankline.nvim", tag = "v2.20.8" }         -- add indentation lines to all lines (including empty lines)
   use "lewis6991/gitsigns.nvim"                      -- Git integration for buffers 
   use {'neoclide/coc.nvim', branch = 'release'}      -- autocompletion
   use "lervag/vimtex"
