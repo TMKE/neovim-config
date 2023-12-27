@@ -8,8 +8,8 @@ return require('packer').startup(function(use)
   }
   use "nvim-treesitter/nvim-treesitter"              -- Nvim Treesitter configurations
 
-  use "udalov/kotlin-vim"
-  use "uiiaoo/java-syntax.vim"
+  -- use "udalov/kotlin-vim"
+  -- use "uiiaoo/java-syntax.vim"
 
   -- [[ Theme ]]
   use { 'mhinz/vim-startify' }                       -- start screen
