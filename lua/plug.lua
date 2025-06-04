@@ -1,82 +1,145 @@
---
+local function bootstrap_pckr()
+    local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
 
-return require('packer').startup(function(use)
-  -- [[ Plugins Go Here ]]
-  use {                                              -- filesystem navigation
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons'        -- filesystem icons
-  }
-  use "nvim-treesitter/nvim-treesitter"              -- Nvim Treesitter configurations
+    if not (vim.uv or vim.loop).fs_stat(pckr_path) then
+        vim.fn.system({
+            'git',
+            'clone',
+            "--filter=blob:none",
+            'https://github.com/lewis6991/pckr.nvim',
+            pckr_path
+        })
+    end
 
-  -- use "udalov/kotlin-vim"
-  -- use "uiiaoo/java-syntax.vim"
+    vim.opt.rtp:prepend(pckr_path)
+end
 
-  -- [[ Theme ]]
-  use { 'mhinz/vim-startify' }                       -- start screen
-  -- use { 'DanilaMihailov/beacon.nvim' }               -- cursor jump
-  use {
-    'nvim-lualine/lualine.nvim',                     -- statusline
-    requires = {'kyazdani42/nvim-web-devicons',
-                opt = true}
-  }
+bootstrap_pckr()
 
-  use({
-  "utilyre/barbecue.nvim",
-  tag = "*",
-  requires = {
-    "SmiteshP/nvim-navic",
-    -- "nvim-tree/nvim-web-devicons", -- optional dependency
-  },
-  -- after = "nvim-web-devicons", -- keep this if you're using NvChad
-  -- config = function()
-  --   require("barbecue").setup()
-  -- end,
-  })
+local cmd = require('pckr.loader.cmd')
+local keys = require('pckr.loader.keys')
+
+require('pckr').add {
+
+    -- Filesystem navigation
+    {
+        'kyazdani42/nvim-tree.lua',
+        requires = 'kyazdani42/nvim-web-devicons',
+        -- cond = keys('n', 'gc'),
+    },
+
+    -- Syntax highlighting
+    {
+        "nvim-treesitter/nvim-treesitter",
+        run = ':TSUpdate'
+    },
+
+    -- Start screen
+    'echasnovski/mini.starter',
+    -- 'mhinz/vim-startify';
+
+    -- Statusline
+    {
+        'nvim-lualine/lualine.nvim',
+        requires = 'kyazdani42/nvim-web-devicons',
+    },
+
+    -- LSP and autocompletion
+    -- {'neoclide/coc.nvim', branch = 'release'};
+    'neovim/nvim-lspconfig',    -- LSP configs
+    'hrsh7th/nvim-cmp',         -- Autocompletion plugin
+    'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
+    'hrsh7th/cmp-buffer',       -- Buffer completions
+    'hrsh7th/cmp-path',         -- File path completions
+    'L3MON4D3/LuaSnip',         -- Snippet engine
+    'saadparwaiz1/cmp_luasnip', -- Snippet completions
+
+    -- Show LSP signature hint while typing
+    'ray-x/lsp_signature.nvim',
+
+    -- Manage LSP servers
+    { "williamboman/mason.nvim", run = ":MasonUpdate" },
+    "williamboman/mason-lspconfig.nvim",
+
+    -- VS Code like winbar that display LSP context
+    {
+        "utilyre/barbecue.nvim",
+        requires = "SmiteshP/nvim-navic",
+    },
+
+    -- Colorschemes
+    'ribru17/bamboo.nvim',
+    'sainnhe/sonokai',
+    'nyoom-engineering/oxocarbon.nvim',
+    'navarasu/onedark.nvim',
+    'wesleimp/min-theme.nvim',
+    'datsfilipe/vesper.nvim',
+    'forest-nvim/sequoia.nvim',
+    'cpplain/flexoki.nvim',
+
+    -- Show code structure
+    'majutsushi/tagbar',
+
+    -- Use Git inside NeoVim
+    'tpope/vim-fugitive',
+
+    -- Git commit browser
+    'junegunn/gv.vim',
+
+    -- Add Git signs
+    "lewis6991/gitsigns.nvim",
+
+    -- View changed files
+    "sindrets/diffview.nvim",
+
+    -- Git interface
+    { 'NeogitOrg/neogit',        tag = "v0.0.1" },
+
+    -- Show available keybindings
+    'folke/which-key.nvim',
+
+    -- Show diagnostics
+    'folke/trouble.nvim',
+
+    -- Find files, buffers, text, ...
+    {
+        'nvim-telescope/telescope.nvim', -- fuzzy finder;
+        requires = 'nvim-lua/plenary.nvim',
+    },
+
+    -- Auto-close brackets, parenthesis, ...
+    'windwp/nvim-autopairs',
+
+    -- Comment things
+    'numToStr/Comment.nvim',
+    -- 'tpope/vim-commentary';
+
+    -- Surround in pairs
+    'kylechui/nvim-surround',
+    -- 'tpope/vim-surround';
+
+    -- Add indentation lines
+    { "lukas-reineke/indent-blankline.nvim", tag = "v2.20.8" },
+    -- use { 'Yggdroot/indentLine' }
+
+    -- Latex syntax and filetype support
+    "lervag/vimtex",
+
+    -- ASCII math formulas generator for Latex files
+    'jbyuki/nabla.nvim', -- <Leader>p to show math equation in popup
+
+    -- Highlight words under the cursor
+    { 'echasnovski/mini.cursorword',         branch = 'stable' },
+
+    -- Animate the cursor with a smear effect
+    'sphamba/smear-cursor.nvim',
+}
 
 
-
-  -- [[ colorschemes ]]
-  use 'ribru17/bamboo.nvim'
-  use 'savq/melange-nvim'
-  use 'sainnhe/sonokai'
-  use 'NTBBloodbath/sweetie.nvim'
-  use 'killitar/obscure.nvim'
-  use 'Styzex/Sonomin.nvim'
-  use 'steguiosaur/fullerene.nvim'
-  use 'dgox16/oldworld.nvim'
-  use 'nyoom-engineering/oxocarbon.nvim'
-  use 'sample-usr/rakis.nvim'
-  use 'scottmckendry/cyberdream.nvim'
-  use 'craftzdog/solarized-osaka.nvim'
-  use 'cdmill/neomodern.nvim'
-
-  use "sindrets/diffview.nvim"
-  use { 'NeogitOrg/neogit', tag = "v0.0.1" }
-
-  use 'folke/which-key.nvim'
-
-  use 'folke/trouble.nvim'
-
-  use {
-    'nvim-telescope/telescope.nvim',                 -- fuzzy finder
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use { 'majutsushi/tagbar' }                        -- code structure
-  -- use { 'Yggdroot/indentLine' }                      -- see indentation
-  use { 'tpope/vim-fugitive' }                       -- git integration
-  use { 'junegunn/gv.vim' }                          -- commit history
-  use { 'windwp/nvim-autopairs' }                    -- auto close brackets, etc.
-  -- use { 'tpope/vim-commentary' }					 -- comment stuff out
-  use 'numToStr/Comment.nvim'
-  -- use { 'tpope/vim-surround' }                       -- add surroundings in pairs
-  use 'kylechui/nvim-surround'
-  use { "lukas-reineke/indent-blankline.nvim", tag = "v2.20.8" }         -- add indentation lines to all lines (including empty lines)
-  use "lewis6991/gitsigns.nvim"                      -- Git integration for buffers 
-  use {'neoclide/coc.nvim', branch = 'release'}      -- autocompletion
-  use "lervag/vimtex"
-  use 'jbyuki/nabla.nvim'                            -- <Leader>p to show math equation in popup
-  use { 'echasnovski/mini.cursorword', branch = 'stable' }
-end)
--- config = {
---  package_root = vim.fn.stdpath('config') .. '/site/pack'
--- })
+-- Packer plugin manager
+-- return require('packer').startup(function(use)
+--   -- [[ Plugins Go Here ]]
+-- end)
+-- -- config = {
+-- --  package_root = vim.fn.stdpath('config') .. '/site/pack'
+-- -- })
